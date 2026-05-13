@@ -1,0 +1,41 @@
+---
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = "S&G | Construction & Interior Design",
+
+  description = "Luxury construction and interior design company.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+
+    <meta name="description" content={description} />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
