@@ -1,38 +1,72 @@
+---
+import SectionHead from "./shared/SectionHead.astro";
+
+const services = {
+  constructionServices: [
+    {
+      title: "New Home Construction",
+      description:
+        "Complete home building solutions from planning to finishing.",
+    },
+    {
+      title: "Home Additions & Renovations",
+      description: "Expand and upgrade existing spaces with modern designs.",
+    },
+    {
+      title: "Commercial Construction",
+      description:
+        "Reliable construction services for offices and business spaces.",
+    },
+    {
+      title: "Structural Repairs",
+      description:
+        "Repair and strengthen damaged structural components safely.",
+    },
+    {
+      title: "Foundation Work",
+      description: "Strong and durable foundation solutions for all projects.",
+    },
+  ],
+
+  interiorDesignServices: [
+    {
+      title: "Space Planning",
+      description: "Optimize room layouts for comfort and functionality.",
+    },
+    {
+      title: "Color Consultation",
+      description: "Choose color palettes that match your style and mood.",
+    },
+    {
+      title: "Furniture Selection",
+      description: "Carefully selected furniture for beauty and practicality.",
+    },
+    {
+      title: "Lighting Design",
+      description: "Enhance interiors with balanced and stylish lighting.",
+    },
+    {
+      title: "Material Selection",
+      description: "Pick quality materials for elegant and durable interiors.",
+    },
+    {
+      title: "Home Staging",
+      description:
+        "Prepare homes with attractive styling for better presentation.",
+    },
+  ],
+};
+---
+
 <section id="services" class="bg-[#080706] px-[5vw] py-28">
-  <p
-    class="section-tag reveal mb-4 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e]"
-  >
-    What We Offer
-  </p>
-
-  <h2
-    class="section-title reveal mb-6 text-center font-['Cormorant_Garamond'] text-[clamp(2.2rem,4vw,3.5rem)] font-light leading-[1.2]"
-  >
-    Our <em class="italic text-[#c9a96e]">Services</em>
-  </h2>
-
-  <div
-    class="ornament reveal mx-auto mb-6 flex items-center justify-center gap-4"
-  >
-    <div
-      class="h-px w-full max-w-[120px] bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
-    >
-    </div>
-
-    <div class="h-2 w-2 shrink-0 rotate-45 bg-[#c9a96e]"></div>
-
-    <div
-      class="h-px w-full max-w-[120px] bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
-    >
-    </div>
-  </div>
-
-  <p
-    class="section-sub reveal mx-auto max-w-[560px] text-center text-[0.9rem] leading-[1.9] tracking-[0.03em] text-[#8a8070]"
-  >
-    From sweeping residences to distinguished commercial spaces, our suite of
-    services covers every dimension of the built environment.
-  </p>
+  <SectionHead
+    tag="What We Offer"
+    title={[
+      { text: "Our", highlight: false },
+      { text: "Services", highlight: false },
+    ]}
+    description="From sweeping residences to distinguished commercial spaces, our suite of services covers every dimension of the built environment."
+  />
 
   <!-- Services Grid -->
   <div
@@ -152,3 +186,4 @@
     </div>
   </div>
 </section>
+

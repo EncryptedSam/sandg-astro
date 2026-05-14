@@ -1,32 +1,36 @@
+---
+import SectionHead from "./shared/SectionHead.astro";
+
+const services: { title: string; description: string }[] = [
+  {
+    title: "New Home Construction",
+    description: "End-to-end design and build solutions.",
+  },
+  {
+    title: "Interior Design",
+    description: "Elegant, functional, and personalized spaces.",
+  },
+  {
+    title: "Renovations & Remodeling",
+    description: "Modern upgrades for existing properties.",
+  },
+  {
+    title: "Civil Engineering Solutions",
+    description: "Structural expertise and project management.",
+  },
+];
+---
+
 <!-- ABOUT -->
 <section id="about" class="bg-[#0f0d0a] py-28 px-[5vw]">
   <!-- TAG -->
-  <p
-    class="text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e] opacity-0 animate-[fadeUp_0.8s_ease_forwards]"
-  >
-    Our Heritage
-  </p>
-
-  <h2
-    class="section-title reveal mb-6 text-center font-['Cormorant_Garamond'] text-[clamp(2.2rem,4vw,3.5rem)] font-light leading-[1.2]"
-  >
-    About <em class="italic text-[#c9a96e]">Us</em>
-  </h2>
-
-  <!-- ORNAMENT -->
-  <div
-    class="mx-auto my-6 flex items-center justify-center gap-4 opacity-0 animate-[fadeUp_0.8s_ease_forwards]"
-  >
-    <div
-      class="h-px w-20 bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent"
-    >
-    </div>
-    <div class="h-2 w-2 rotate-45 bg-[#c9a96e]"></div>
-    <div
-      class="h-px w-20 bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent"
-    >
-    </div>
-  </div>
+  <SectionHead 
+    tag="Our Heritage" 
+    title={[
+      {text:"About", highlight:false},
+      {text:"Us", highlight:false}
+    ]} 
+  />
 
   <!-- GRID -->
   <div class="mt-20 grid gap-20 lg:grid-cols-2 items-center">
@@ -77,52 +81,30 @@
       <p
         class="mt-6 max-w-[560px] text-left text-[0.9rem] leading-[1.9] text-[#8a8070]"
       >
-        S&G is an award-winning construction and interior design firm dedicated
-        to delivering extraordinary living and commercial spaces. Every project
-        is a testament to our unwavering commitment to quality, aesthetics, and
-        enduring value.
+        To provide high-quality construction and interior design services,
+        delivered with integrity, professionalism, and a focus on client
+        satisfaction.
       </p>
 
       <!-- FEATURES -->
       <div class="mt-10 flex flex-col gap-6">
-        <div class="flex gap-4 border-b border-[#c9a96e]/10 pb-5">
-          <div class="h-10 w-[2px] bg-[#c9a96e] mt-1"></div>
-          <div>
-            <p class="text-[0.85rem] font-medium tracking-wide text-[#e8d5a8]">
-              Bespoke Construction
-            </p>
-            <p class="mt-1 text-[0.8rem] leading-[1.8] text-[#8a8070]">
-              From foundation to finish, our master builders execute every
-              detail with precision and artisanal skill honed over decades.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 border-b border-[#c9a96e]/10 pb-5">
-          <div class="h-10 w-[2px] bg-[#c9a96e] mt-1"></div>
-          <div>
-            <p class="text-[0.85rem] font-medium tracking-wide text-[#e8d5a8]">
-              Luxury Interior Design
-            </p>
-            <p class="mt-1 text-[0.8rem] leading-[1.8] text-[#8a8070]">
-              Our designers curate spaces that balance aesthetic grandeur with
-              the warmth and functionality of daily living.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="h-10 w-[2px] bg-[#c9a96e] mt-1"></div>
-          <div>
-            <p class="text-[0.85rem] font-medium tracking-wide text-[#e8d5a8]">
-              End-to-End Project Management
-            </p>
-            <p class="mt-1 text-[0.8rem] leading-[1.8] text-[#8a8070]">
-              A dedicated team oversees every phase — ensuring seamless
-              delivery, on schedule and without compromise.
-            </p>
-          </div>
-        </div>
+        {
+          services.map(({ title, description }) => {
+            return (
+              <div class="flex gap-4 border-b border-[#c9a96e]/10 pb-5">
+                <div class="h-10 w-[2px] bg-[#c9a96e] mt-1" />
+                <div>
+                  <p class="text-[0.85rem] font-medium tracking-wide text-[#e8d5a8]">
+                    {title}
+                  </p>
+                  <p class="mt-1 text-[0.8rem] leading-[1.8] text-[#8a8070]">
+                    {description}
+                  </p>
+                </div>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   </div>

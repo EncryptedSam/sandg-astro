@@ -1,0 +1,57 @@
+---
+interface Props {
+  tag: string;
+  title: { text: string; highlight: boolean }[];
+  description?: string;
+}
+
+const { tag, title, description } = Astro.props;
+---
+
+<p
+  class="section-tag reveal mb-4 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e]"
+>
+  {tag}
+</p>
+
+<h2
+  class="section-title reveal mb-6 text-center font-['Cormorant_Garamond'] text-[clamp(2.2rem,4vw,3.5rem)] font-light leading-[1.2]"
+>
+  {
+    title.map((item) =>
+      item.highlight ? (
+        <em class="italic text-[#c9a96e]">
+          {item.text}{" "}
+        </em>
+      ) : (
+        <>
+          {item.text}{" "}
+        </>
+      )
+    )
+  }
+</h2>
+
+<div
+  class="ornament reveal mx-auto mb-6 flex items-center justify-center gap-4"
+>
+  <div
+    class="h-px w-full max-w-[120px] bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
+  >
+  </div>
+
+  <div class="h-2 w-2 shrink-0 rotate-45 bg-[#c9a96e]"></div>
+
+  <div
+    class="h-px w-full max-w-[120px] bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
+  >
+  </div>
+</div>
+
+{
+  description && (
+    <p class="section-sub reveal mx-auto max-w-[560px] text-center text-[0.9rem] leading-[1.9] tracking-[0.03em] text-[#8a8070]">
+      {description}
+    </p>
+  )
+}
