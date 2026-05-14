@@ -1,5 +1,13 @@
 ---
-
+const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
+  { href: "#projects", label: "Projects" },
+  { href: "#onsite", label: "On Site" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#founders", label: "Founders" },
+  { href: "#contact", label: "Contact" },
+];
 ---
 
 <nav
@@ -16,48 +24,20 @@
   </a>
 
   <ul class="flex gap-10 list-none absolute max-[1130px]:hidden">
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#about">About</a
-      >
-    </li>
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#services">Services</a
-      >
-    </li>
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#projects">Projects</a
-      >
-    </li>
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#onsite">On Site</a
-      >
-    </li>
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#testimonials">Testimonials</a
-      >
-    </li>
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#founders">Founders</a
-      >
-    </li>
-    <li>
-      <a
-        class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
-        href="#contact">Contact</a
-      >
-    </li>
+    {
+      navLinks.map(({ href, label }) => {
+        return (
+          <li>
+            <a
+              class="text-[0.72rem] tracking-[0.2em] uppercase text-cream no-underline opacity-70 transition-all duration-300 hover:opacity-100 hover:text-gold"
+              href={href}
+            >
+              {label}
+            </a>
+          </li>
+        );
+      })
+    }
   </ul>
 
   <a
@@ -66,6 +46,7 @@
     >Get in Touch</a
   >
   <button
+    data-hamburger
     class="flex flex-col gap-1 p-2 border border-[#c9a96e]/30 w-10 h-10 items-start justify-center min-[1130px]:hidden cursor-pointer"
   >
     <span class="h-[1px] w-full bg-[#c9a96e]"></span>
@@ -74,18 +55,24 @@
   </button>
 </nav>
 
-<div class="fixed w-screen h-screen top-0 right-0 z-50">
+<div
+  data-sidenav
+  class="hidden w-screen h-screen top-0 right-0 z-50 min-[1130px]:hidden"
+>
   <div class="absolute h-full w-full bg-black/70"></div>
 
   <div
-    class="absolute flex flex-col top-0 right-0 w-[320px] h-full bg-[#0a0907fa] border-l border-gold/20 backdrop-blur-xl transition duration-500 p-10 pt-0 overflow-auto z-10"
+    class="absolute flex flex-col top-0 right-0 w-[400px] h-full bg-[#0a0907fa] border-l border-gold/20 backdrop-blur-xl transition duration-500 p-10 pt-0 overflow-auto z-10"
   >
-    <div class="w-full flex flex-col shrink-0 sticky top-0 pt-10 bg-[#0a0907fa] backdrop-blur-xl" >
+    <div
+      class="w-full flex flex-col shrink-0 sticky top-0 pt-10 bg-[#0a0907fa] backdrop-blur-xl"
+    >
       <button
+        data-navclose
         class="ml-auto w-10 h-10 border border-gold/30 text-gold hover:text-[#C9A96E] hover:border-gold hover:bg-[#c9a96e1a] cursor-pointer transition duration-300"
         >✕</button
       >
-      <a href="/" class="mr-auto shrink-0">
+      <a href="#" class="mr-auto shrink-0">
         <img
           data-logo
           class="logo h-23.75 transition-all duration-300"
@@ -96,13 +83,21 @@
     </div>
 
     <div class="flex-1 mt-10">
-      <ul class="flex flex-col gap-6">
-        <li class="block w-full border-0 border-b border-b-[#c9a96e14]" >
-          <a
-            class="inline-block font-['Cormorant_Garamond'] leading-[1.7] text-[#f5f0e8] p-[1.1rem_0] text-[#f5f0e8] hover:text-[#c9a96e] text-[1.5rem] pl-0 hover:pl-[17px] transition-all duration-300"
-            href="#">About</a
-          >
-        </li>
+      <ul class="flex flex-col">
+        {
+          navLinks.map(({ href, label }) => {
+            return (
+              <li class="block w-full border-0 border-b border-b-[#c9a96e14]">
+                <a
+                  class="block font-['Cormorant_Garamond'] leading-[1.7] text-[#f5f0e8] p-[1.1rem_0] text-[#f5f0e8] hover:text-[#c9a96e] text-[1.5rem] pl-0 hover:pl-[17px] transition-all duration-300"
+                  href={href}
+                >
+                  {label}
+                </a>
+              </li>
+            );
+          })
+        }
       </ul>
     </div>
     <div class="shrink-0">
@@ -163,4 +158,16 @@
 
   window.addEventListener("scroll", handleResize);
   handleResize();
+
+  const ham = document.querySelector("[data-hamburger]");
+  const sidenav = document.querySelector("[data-sidenav]");
+  const navclosebtn = sidenav.querySelector("[data-navclose]");
+
+  ham?.addEventListener("click", () => {
+    sidenav?.classList.toggle("hidden");
+  });
+
+  navclosebtn?.addEventListener("click", () => {
+    sidenav?.classList.toggle("hidden");
+  });
 </script>
