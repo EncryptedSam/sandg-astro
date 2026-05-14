@@ -14,7 +14,7 @@ const navLinks = [
   data-navbar
   class="fixed bg-linear-to-b flex justify-center items-center from-[rgba(8,7,6,0.95)] to-transparent top-0 left-0 right-0 px-[5vw] py-6 transition-colors duration-300 z-10"
 >
-  <a href="/" class="mr-auto">
+  <a href="#" class="mr-auto">
     <img
       data-logo
       class="logo h-23.75 transition-all duration-300"
@@ -57,7 +57,7 @@ const navLinks = [
 
 <div
   data-sidenav
-  class="hidden w-screen h-screen top-0 right-0 z-50 min-[1130px]:hidden"
+  class="fixed hidden w-screen h-screen top-0 right-0 z-50 min-[1130px]:hidden"
 >
   <div class="absolute h-full w-full bg-black/70"></div>
 
@@ -74,7 +74,6 @@ const navLinks = [
       >
       <a href="#" class="mr-auto shrink-0">
         <img
-          data-logo
           class="logo h-23.75 transition-all duration-300"
           src={`${import.meta.env.BASE_URL}images/sg-logo-circle-3.svg`}
           alt="S&G Logo"
@@ -117,7 +116,6 @@ const navLinks = [
 
 <script type="module">
   const nav = document.querySelector("[data-navbar]");
-
   const logo = document.querySelector("[data-logo]");
 
   const handleResize = () => {
@@ -163,11 +161,11 @@ const navLinks = [
   const sidenav = document.querySelector("[data-sidenav]");
   const navclosebtn = sidenav.querySelector("[data-navclose]");
 
-  ham?.addEventListener("click", () => {
+  const toggleSidenav = () => {
     sidenav?.classList.toggle("hidden");
-  });
+  };
 
-  navclosebtn?.addEventListener("click", () => {
-    sidenav?.classList.toggle("hidden");
-  });
+  ham?.addEventListener("click", toggleSidenav);
+
+  navclosebtn?.addEventListener("click", toggleSidenav);
 </script>
