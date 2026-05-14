@@ -1,38 +1,16 @@
+---
+import SectionHead from "./shared/SectionHead.astro";
+---
+
 <section id="onsite" class="bg-[#080706] px-[5vw] py-28">
-  <p
-    class="reveal mb-4 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e]"
-  >
-    On Site
-  </p>
-
-  <h2
-    class="reveal font-['Cormorant_Garamond'] text-center text-[clamp(2.2rem,4vw,3.5rem)] font-light leading-[1.2]"
-  >
-    Raw &
-    <em class="italic text-[#c9a96e]">Unfiltered</em>
-  </h2>
-
-  <!-- Ornament -->
-  <div
-    class="ornament reveal mx-auto mt-6 flex items-center justify-center gap-4"
-  >
-    <div
-      class="h-px max-w-[120px] flex-1 bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
-    >
-    </div>
-    <div class="h-2 w-2 rotate-45 bg-[#c9a96e]"></div>
-    <div
-      class="h-px max-w-[120px] flex-1 bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
-    >
-    </div>
-  </div>
-
-  <p
-    class="reveal mx-auto mt-6 max-w-[560px] text-center text-[0.9rem] leading-[1.9] tracking-[0.03em] text-[#8a8070]"
-  >
-    Unedited moments captured on site — the grit, craft, and human hands behind
-    every space we create. Before the polish, there is the process.
-  </p>
+  <SectionHead 
+    tag="On Site" 
+    title={[
+        {text:"Raw &", highlight:false},
+        {text:"Unfiltered", highlight:true},
+    ]} 
+    description="Unedited moments captured on site — the grit, craft, and human hands behind every space we create. Before the polish, there is the process."
+  />
 
   <!-- Grid -->
   <div class="reveal mt-16 grid grid-cols-12 gap-3">

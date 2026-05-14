@@ -1,31 +1,15 @@
+---
+import SectionHead from "./shared/SectionHead.astro";
+---
+
 <section id="projects" class="bg-[#0f0d0a] px-[5vw] py-28">
-  <p
-    class="section-tag reveal mb-4 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e]"
-  >
-    Portfolio
-  </p>
-
-  <h2
-    class="section-title reveal mb-6 text-center font-['Cormorant_Garamond'] text-[clamp(2.2rem,4vw,3.5rem)] font-light leading-[1.2]"
-  >
-    Completed <em class="italic text-[#c9a96e]">Projects</em>
-  </h2>
-
-  <div
-    class="ornament reveal mx-auto mb-6 flex items-center justify-center gap-4"
-  >
-    <div
-      class="h-px w-full max-w-[120px] bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
-    >
-    </div>
-
-    <div class="h-2 w-2 shrink-0 rotate-45 bg-[#c9a96e]"></div>
-
-    <div
-      class="h-px w-full max-w-[120px] bg-[linear-gradient(to_right,transparent,#c9a96e,transparent)]"
-    >
-    </div>
-  </div>
+  <SectionHead
+    tag="Portfolio"
+    title={[
+      { text: "Completed", highlight: false },
+      { text: "Projects", highlight: true },
+    ]}
+  />
 
   <!-- Filters -->
   <div class="projects-filter reveal my-10 flex flex-wrap justify-center gap-8">
