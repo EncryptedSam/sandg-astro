@@ -1,4 +1,39 @@
-<section id="process" class="bg-[#1a1710] px-[5vw] py-28">
+---
+const processSteps = [
+  {
+    number: "I",
+    title: "Consultation",
+    description:
+      "We begin with a detailed discussion to understand your vision, goals, and the unique character you want your space to embody.",
+  },
+  {
+    number: "II",
+    title: "Design",
+    description:
+      "Our designers craft refined concepts, curated materials, and elegant visual direction tailored to your lifestyle and aspirations.",
+  },
+  {
+    number: "III",
+    title: "Planning",
+    description:
+      "Every detail is meticulously organized through strategic planning, technical precision, and seamless project coordination.",
+  },
+  {
+    number: "IV",
+    title: "Implementation",
+    description:
+      "Skilled craftsmen and specialists bring the vision to life with exceptional quality, precision, and attention to detail.",
+  },
+  {
+    number: "V",
+    title: "Completion",
+    description:
+      "We deliver a finished space with final refinements, documentation, and continued support to ensure a lasting legacy.",
+  },
+];
+---
+
+<section id="process" class="px-[5vw] py-28">
   <p
     class="section-tag reveal mb-4 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e]"
   >
@@ -28,7 +63,7 @@
   </div>
 
   <div
-    class="process-steps reveal relative mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+    class="process-steps reveal relative mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-5"
   >
     <!-- Line -->
     <div
@@ -36,84 +71,24 @@
     >
     </div>
 
-    <!-- Step -->
-    <div class="relative z-[1] px-6 text-center">
-      <div
-        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center border border-[#c9a96e] bg-[#1a1710] font-['Cormorant_Garamond'] text-[1.6rem] font-light text-[#c9a96e]"
-      >
-        I
-      </div>
+    {
+      processSteps.map(({ description, number, title }) => {
+        return (
+          <div class="relative z-[1] px-6 text-center">
+            <div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center border border-[#c9a96e] bg-[#1a1710] font-['Cormorant_Garamond'] text-[1.6rem] font-light text-[#c9a96e]">
+              {number}
+            </div>
 
-      <p
-        class="mb-3 text-[0.9rem] font-medium tracking-[0.05em] text-[#f5f0e8]"
-      >
-        Discovery & Vision
-      </p>
+            <p class="mb-3 text-[0.9rem] font-medium tracking-[0.05em] text-[#f5f0e8]">
+              {title}
+            </p>
 
-      <p class="text-[0.78rem] leading-[1.9] text-[#8a8070]">
-        We begin with an in-depth consultation to understand your aspirations,
-        lifestyle, and the story you wish your space to tell.
-      </p>
-    </div>
-
-    <!-- Step -->
-    <div class="relative z-[1] px-6 text-center">
-      <div
-        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center border border-[#c9a96e] bg-[#1a1710] font-['Cormorant_Garamond'] text-[1.6rem] font-light text-[#c9a96e]"
-      >
-        II
-      </div>
-
-      <p
-        class="mb-3 text-[0.9rem] font-medium tracking-[0.05em] text-[#f5f0e8]"
-      >
-        Design & Concept
-      </p>
-
-      <p class="text-[0.78rem] leading-[1.9] text-[#8a8070]">
-        Our architects and designers craft a bespoke concept — detailed plans,
-        material palettes, and 3D visualisations.
-      </p>
-    </div>
-
-    <!-- Step -->
-    <div class="relative z-[1] px-6 text-center">
-      <div
-        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center border border-[#c9a96e] bg-[#1a1710] font-['Cormorant_Garamond'] text-[1.6rem] font-light text-[#c9a96e]"
-      >
-        III
-      </div>
-
-      <p
-        class="mb-3 text-[0.9rem] font-medium tracking-[0.05em] text-[#f5f0e8]"
-      >
-        Construction
-      </p>
-
-      <p class="text-[0.78rem] leading-[1.9] text-[#8a8070]">
-        Master craftsmen bring the design to life with meticulous precision,
-        using only the finest materials and techniques.
-      </p>
-    </div>
-
-    <!-- Step -->
-    <div class="relative z-[1] px-6 text-center">
-      <div
-        class="mx-auto mb-6 flex h-20 w-20 items-center justify-center border border-[#c9a96e] bg-[#1a1710] font-['Cormorant_Garamond'] text-[1.6rem] font-light text-[#c9a96e]"
-      >
-        IV
-      </div>
-
-      <p
-        class="mb-3 text-[0.9rem] font-medium tracking-[0.05em] text-[#f5f0e8]"
-      >
-        Handover & Legacy
-      </p>
-
-      <p class="text-[0.78rem] leading-[1.9] text-[#8a8070]">
-        We deliver your completed space with full documentation and offer
-        ongoing support to preserve its splendour.
-      </p>
-    </div>
+            <p class="text-[0.78rem] leading-[1.9] text-[#8a8070]">
+              {description}{" "}
+            </p>
+          </div>
+        );
+      })
+    }
   </div>
 </section>

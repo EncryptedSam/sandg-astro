@@ -1,4 +1,33 @@
-<section id="testimonials" class="bg-[#080706] px-[5vw] py-28">
+---
+const testimonials = [
+  {
+    testimonial:
+      "Auspicious Homes exceeded our expectations with their professionalism, attention to detail, and ability to bring our vision to life seamlessly.",
+    clientName: "Sameer",
+    addr: "Bandlaguda Jagir",
+  },
+  {
+    testimonial:
+      "They transformed our office into a modern and highly functional space with exceptional expertise, creativity, and care.",
+    clientName: "Chandra Shekar",
+    addr: "Manneguda",
+  },
+  {
+    testimonial:
+      "From the initial consultation to the final reveal, the entire process was smooth, stress free, and beautifully executed.",
+    clientName: "KK Radha Mohan",
+    addr: "Bion B 1607",
+  },
+  {
+    testimonial:
+      "Their team turned our dream home into reality with remarkable craftsmanship, dedication, and attention to every detail.",
+    clientName: "Raghu Ram",
+    addr: "EIPL Corner Stone 1408",
+  },
+];
+---
+
+<section id="testimonials" class="px-[5vw] py-28">
   <p
     class="section-tag reveal mb-4 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[#c9a96e]"
   >
@@ -33,131 +62,37 @@
         class="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
         id="testiTrack"
       >
-        <!-- Slide -->
-        <div class="min-w-full px-8">
-          <div
-            class="relative border border-[rgba(201,169,110,0.15)] bg-[#0f0d0a] px-8 py-14 text-center md:px-14"
-          >
-            <div
-              class="absolute left-10 top-8 font-['Cormorant_Garamond'] text-[8rem] font-light leading-[0.5] text-[rgba(201,169,110,0.12)]"
-            >
-              "
-            </div>
+        {
+          testimonials.map(({ addr, clientName, testimonial }) => {
+            return (
+              <div class="min-w-full px-8">
+                <div class="relative border border-[rgba(201,169,110,0.15)] bg-[#0f0d0a] px-8 py-14 text-center md:px-14">
+                  <div class="absolute left-10 top-8 font-['Cormorant_Garamond'] text-[8rem] font-light leading-[0.5] text-[rgba(201,169,110,0.12)]">
+                    "
+                  </div>
 
-            <div
-              class="relative z-[1] mb-2 text-[0.8rem] tracking-[0.2em] text-[#c9a96e]"
-            >
-              ★ ★ ★ ★ ★
-            </div>
+                  <div class="relative z-[1] mb-2 text-[0.8rem] tracking-[0.2em] text-[#c9a96e]">
+                    ★ ★ ★ ★ ★
+                  </div>
 
-            <p
-              class="relative z-[1] mb-10 font-['Cormorant_Garamond'] text-[1.35rem] font-light italic leading-[1.8] text-[#f5f0e8]"
-            >
-              S&G did not merely build our home — they sculpted a sanctuary.
-              Every corner reflects an intimacy with detail that I did not think
-              possible. The team's devotion to excellence was absolute
-              throughout every phase of the project.
-            </p>
+                  <p class="relative z-[1] mb-10 font-['Cormorant_Garamond'] text-[1.35rem] font-light italic leading-[1.8] text-[#f5f0e8]">
+                    {testimonial}
+                  </p>
 
-            <div class="flex flex-col items-center gap-1">
-              <p
-                class="text-[0.85rem] font-medium tracking-[0.1em] text-[#c9a96e]"
-              >
-                Rajiv & Priya Mehta
-              </p>
+                  <div class="flex flex-col items-center gap-1">
+                    <p class="text-[0.85rem] font-medium tracking-[0.1em] text-[#c9a96e]">
+                      {clientName}
+                    </p>
 
-              <p
-                class="text-[0.72rem] uppercase tracking-[0.15em] text-[#8a8070]"
-              >
-                Residence · Hyderabad
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide -->
-        <div class="min-w-full px-8">
-          <div
-            class="relative border border-[rgba(201,169,110,0.15)] bg-[#0f0d0a] px-8 py-14 text-center md:px-14"
-          >
-            <div
-              class="absolute left-10 top-8 font-['Cormorant_Garamond'] text-[8rem] font-light leading-[0.5] text-[rgba(201,169,110,0.12)]"
-            >
-              "
-            </div>
-
-            <div
-              class="relative z-[1] mb-2 text-[0.8rem] tracking-[0.2em] text-[#c9a96e]"
-            >
-              ★ ★ ★ ★ ★
-            </div>
-
-            <p
-              class="relative z-[1] mb-10 font-['Cormorant_Garamond'] text-[1.35rem] font-light italic leading-[1.8] text-[#f5f0e8]"
-            >
-              From the very first meeting, S&G demonstrated a rare understanding
-              of our brand's essence. They transformed our corporate
-              headquarters into an environment that inspires confidence in every
-              client who walks through the door.
-            </p>
-
-            <div class="flex flex-col items-center gap-1">
-              <p
-                class="text-[0.85rem] font-medium tracking-[0.1em] text-[#c9a96e]"
-              >
-                Aditya Sharma
-              </p>
-
-              <p
-                class="text-[0.72rem] uppercase tracking-[0.15em] text-[#8a8070]"
-              >
-                CEO, Apex Capital · Delhi
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide -->
-        <div class="min-w-full px-8">
-          <div
-            class="relative border border-[rgba(201,169,110,0.15)] bg-[#0f0d0a] px-8 py-14 text-center md:px-14"
-          >
-            <div
-              class="absolute left-10 top-8 font-['Cormorant_Garamond'] text-[8rem] font-light leading-[0.5] text-[rgba(201,169,110,0.12)]"
-            >
-              "
-            </div>
-
-            <div
-              class="relative z-[1] mb-2 text-[0.8rem] tracking-[0.2em] text-[#c9a96e]"
-            >
-              ★ ★ ★ ★ ★
-            </div>
-
-            <p
-              class="relative z-[1] mb-10 font-['Cormorant_Garamond'] text-[1.35rem] font-light italic leading-[1.8] text-[#f5f0e8]"
-            >
-              Working with S&G on our boutique hotel was transformative. Their
-              interior design team brought a vision so refined and authentic
-              that our guests consistently describe the experience as unlike
-              anything they have encountered before.
-            </p>
-
-            <div class="flex flex-col items-center gap-1">
-              <p
-                class="text-[0.85rem] font-medium tracking-[0.1em] text-[#c9a96e]"
-              >
-                Nandita Rao
-              </p>
-
-              <p
-                class="text-[0.72rem] uppercase tracking-[0.15em] text-[#8a8070]"
-              >
-                Director, Velour Hotels · Mumbai
-              </p>
-            </div>
-          </div>
-        </div>
+                    <p class="text-[0.72rem] uppercase tracking-[0.15em] text-[#8a8070]">
+                      {addr}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
       </div>
     </div>
 
@@ -170,14 +105,21 @@
         &#8592;
       </button>
 
-      <div class="flex gap-2">
-        <div class="h-[6px] w-6 bg-[#c9a96e]" data-i="0"></div>
-
-        <div class="h-[6px] w-[6px] bg-[rgba(201,169,110,0.25)]" data-i="1">
-        </div>
-
-        <div class="h-[6px] w-[6px] bg-[rgba(201,169,110,0.25)]" data-i="2">
-        </div>
+      <div data-dotslist class="flex gap-2">
+        {
+          testimonials.map((_, idx) => {
+            if (idx == 0) {
+              return <div class="h-[6px] w-6 bg-[#c9a96e]" data-i={`${idx}`} />;
+            } else {
+              return (
+                <div
+                  class="h-[6px] w-1.5 bg-[rgba(201,169,110,0.25)]"
+                  data-i={`${idx}`}
+                />
+              );
+            }
+          })
+        }
       </div>
 
       <button
@@ -189,3 +131,59 @@
     </div>
   </div>
 </section>
+
+<script>
+  let cur = 0;
+
+  const track = document.getElementById("testiTrack") as HTMLElement | null;
+  const slides = track?.children;
+  const dots = document.querySelectorAll<HTMLElement>("[data-dotslist]  div");
+
+  if (track && slides?.length) {
+    const goTo = (n: number): void => {
+      cur = (n + slides.length) % slides.length;
+
+      track.style.transform = `translateX(-${cur * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        const active = i === cur;
+
+        dot.classList.toggle("w-6", active);
+        dot.classList.toggle("bg-[#c9a96e]", active);
+
+        dot.classList.toggle("w-1.5", !active);
+        dot.classList.toggle("bg-[rgba(201,169,110,0.25)]", !active);
+      });
+    };
+
+    document
+      .getElementById("testiPrev")
+      ?.addEventListener("click", () => goTo(cur - 1));
+
+    document
+      .getElementById("testiNext")
+      ?.addEventListener("click", () => goTo(cur + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        goTo(Number(dot.dataset.i));
+      });
+    });
+
+    let autoSlide: ReturnType<typeof setInterval> = setInterval(() => {
+      goTo(cur + 1);
+    }, 6000);
+
+    const wrapper = track.parentElement;
+
+    wrapper?.addEventListener("mouseenter", () => {
+      clearInterval(autoSlide);
+    });
+
+    wrapper?.addEventListener("mouseleave", () => {
+      autoSlide = setInterval(() => {
+        goTo(cur + 1);
+      }, 6000);
+    });
+  }
+</script>
