@@ -1,5 +1,5 @@
 <footer
-  class="bg-[#080706] border-t border-[rgba(201,169,110,0.12)] px-[5vw] py-12 flex items-center justify-between flex-wrap gap-6"
+  class="border-t border-[rgba(201,169,110,0.12)] px-[5vw] py-12 flex items-center justify-between flex-wrap gap-6"
 >
   <p class="text-[0.72rem] tracking-[0.05em] text-[#8a8070]">
     © 2025 <span class="text-[#c9a96e]">S&G</span> Constructions & Interior Design.
@@ -57,3 +57,16 @@
     </a>
   </div>
 </footer>
+
+<script type="module">
+  const sections = document.querySelectorAll("body section");
+  const footer = document.querySelector<HTMLElement>("footer");
+
+  if (sections.length && footer) {
+    const lastSection = sections[sections.length - 1];
+
+    const bg = getComputedStyle(lastSection).backgroundColor;
+
+    footer.style.backgroundColor = '#000000';
+  }
+</script>

@@ -15,12 +15,18 @@ const navLinks = [
   class="fixed bg-linear-to-b flex justify-center items-center from-[rgba(8,7,6,0.95)] to-transparent top-0 left-0 right-0 px-[5vw] py-6 transition-colors duration-300 z-10"
 >
   <a href="#" class="mr-auto">
-    <img
+    <!-- <img
       data-logo
-      class="logo h-23.75 transition-all duration-300"
+      class="h-23.75 transition-all duration-300"
       src={`${import.meta.env.BASE_URL}images/sg-logo-circle-3.svg`}
       alt="S&G Logo"
-    />
+    /> -->
+    <div
+      data-logo
+      class="h-23.75 w-23.75 transition-all duration-300 bg-no-repeat bg-cover bg-center"
+      style={`background-image:url(/public/images/sg-logo-circle-3.svg)`}
+    >
+    </div>
   </a>
 
   <ul class="flex gap-10 list-none absolute max-[1170px]:hidden">
@@ -132,9 +138,12 @@ const navLinks = [
         "to-transparent",
       );
 
-      logo?.classList.add("h-[60px]");
+      logo?.classList.add("h-[60px]", "w-[60px]");
+      logo?.classList.remove("h-[95px]", "w-[95px]");
 
-      logo?.classList.remove("h-[95px]");
+      if (logo) {
+        logo.style.backgroundSize = "199%";
+      }
     } else {
       nav?.classList.remove(
         "bg-[rgba(8,7,6,0.97)]",
@@ -148,9 +157,11 @@ const navLinks = [
         "to-transparent",
       );
 
-      logo?.classList.add("h-[95px]");
-
-      logo?.classList.remove("h-[60px]");
+      logo?.classList.add("h-[95px]", "w-[95px]");
+      logo?.classList.remove("h-[60px]", "w-[60px]");
+      if (logo) {
+        logo.style.backgroundSize = "100%";
+      }
     }
   };
 
