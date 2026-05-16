@@ -1,0 +1,28 @@
+---
+interface Props {
+  width?: number | string;
+  imgUrl?: string;
+  noBrightness?: boolean;
+  bgSize?: string;
+  inverted?: boolean;
+}
+
+const {
+  imgUrl,
+  bgSize = "contain",
+  width = "180px",
+  inverted = true,
+  noBrightness = true,
+} = Astro.props as Props;
+---
+
+<div
+  class="flex h-19 min-w-45 items-center justify-center border-r border-[rgba(201,169,110,0.12)] opacity-45 transition hover:opacity-100"
+  style={`width:${typeof width === "number" ? `${width}px` : width};`}
+>
+  <div
+    class={`h-full w-full bg-contain bg-no-repeat bg-center ${noBrightness ? "brightness-0" : ""} ${inverted ? "invert" : ""}`}
+    style={`background-image:url('${imgUrl}');background-size:${bgSize};`}
+  >
+  </div>
+</div>
