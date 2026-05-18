@@ -1,6 +1,56 @@
 ---
 import SectionHead from "./shared/SectionHead.astro";
 import MarqueeImage from "./shared/MarqueeImage.astro";
+const marqueeImages = [
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_blum.svg`,
+    bgSize: "76%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_asianpaints2.svg`,
+    bgSize: "50%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_hafele.svg`,
+    bgSize: "90%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_centuryply.svg`,
+    bgSize: "76%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_philips.svg`,
+    bgSize: "85%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_havells.svg`,
+    bgSize: "60%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_greenply.svg`,
+    bgSize: "70%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_fevicol.svg`,
+    bgSize: "60%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_hettich.svg`,
+    bgSize: "90%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_tesa.svg`,
+    bgSize: "86%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_finolex.svg`,
+    bgSize: "86%",
+  },
+  {
+    imgUrl: `${import.meta.env.BASE_URL}images/ptnr_ebco.svg`,
+    bgSize: "73%",
+  },
+];
 ---
 
 <section id="partners" class="px-[5vw] py-20">
@@ -33,18 +83,20 @@ import MarqueeImage from "./shared/MarqueeImage.astro";
       class="flex w-max animate-[partnersScroll_28s_linear_infinite] items-center hover:[animation-play-state:paused]"
     >
       <!-- SET 1 -->
-      <MarqueeImage 
-        imgUrl="/public/images/ptnr_blum.svg"
-        bgSize="84%"
-      />
-      <MarqueeImage 
-        imgUrl="/public/images/ptnr_greenply.svg"
-      />
-
+      {
+        marqueeImages.map((item) => (
+          <MarqueeImage imgUrl={item.imgUrl} bgSize={item.bgSize} />
+        ))
+      }
+      {
+        marqueeImages.map((item) => (
+          <MarqueeImage imgUrl={item.imgUrl} bgSize={item.bgSize} />
+        ))
+      }
     </div>
   </div>
 </section>
-<!-- 
+
 <style>
   @keyframes partnersScroll {
     from {
@@ -55,4 +107,3 @@ import MarqueeImage from "./shared/MarqueeImage.astro";
     }
   }
 </style>
- -->
