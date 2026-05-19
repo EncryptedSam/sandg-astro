@@ -124,3 +124,40 @@ body section:nth-of-type(even) {
     font-size: 45px !important;
   }
 }
+
+/* JS-toggled tab states */
+
+.srv-tab.active {
+  background: #c9a96e;
+  color: #080706;
+}
+.srv-tab:not(.active):hover {
+  color: #c9a96e;
+}
+
+/* JS-toggled panel visibility */
+.srv-panel {
+  display: none;
+}
+.srv-panel.active {
+  display: block;
+}
+
+/* Scroll-reveal (driven by IntersectionObserver JS) */
+/* .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+} */
+
+/* Card description expand — needs both max-h + opacity on group-hover */
+/* .srv-card-img:hover .srv-card-desc {
+  max-height: 80px;
+  opacity: 1;
+} */

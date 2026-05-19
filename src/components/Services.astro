@@ -58,132 +58,484 @@ const services = {
 };
 ---
 
-<section id="services" class="px-[5vw] py-28">
-  <SectionHead
-    tag="What We Offer"
-    title={[
-      { text: "Our", highlight: false },
-      { text: "Services", highlight: true },
-    ]}
-    description="From sweeping residences to distinguished commercial spaces, our suite of services covers every dimension of the built environment."
-  />
-
-  <!-- Services Grid -->
-  <div
-    class="services-grid reveal mt-16 grid gap-[2px] md:grid-cols-2 xl:grid-cols-3"
+<section id="services" class="py-28 px-[5vw] bg-[#080706]">
+  <!-- Header -->
+  <p
+    class="reveal text-[0.65rem] tracking-[0.35em] uppercase text-[#c9a96e] mb-4 text-center"
   >
-    <!-- Card -->
-    <div class="group relative h-[420px] overflow-hidden">
-      <img
-        src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=700&q=80"
-        alt="Luxury Residences"
-        class="h-full w-full object-cover transition-transform duration-[800ms] ease-in-out group-hover:scale-110"
-      />
+    What We Offer
+  </p>
 
-      <div
-        class="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,7,6,0.95)_0%,rgba(8,7,6,0.3)_60%,transparent_100%)] transition-all duration-500 group-hover:bg-[linear-gradient(to_top,rgba(8,7,6,0.98)_0%,rgba(8,7,6,0.6)_100%)]"
-      >
-      </div>
+  <h2
+    class="reveal font-['Cormorant_Garamond',serif] text-[clamp(2.2rem,4vw,3.5rem)] font-light leading-[1.2] text-center mb-6"
+  >
+    Our <em class="italic text-[#c9a96e]">Services</em>
+  </h2>
 
-      <div class="absolute inset-x-0 bottom-0 p-8">
-        <div
-          class="mb-2 font-['Cormorant_Garamond'] text-[4rem] font-light leading-none text-[rgba(201,169,110,0.15)]"
-        >
-          01
-        </div>
-
-        <div class="mb-3 h-px w-[30px] bg-[#c9a96e]"></div>
-
-        <p
-          class="mb-2 font-['Cormorant_Garamond'] text-[1.6rem] font-normal text-[#f5f0e8]"
-        >
-          Luxury Residences
-        </p>
-
-        <p
-          class="max-h-0 overflow-hidden text-[0.78rem] leading-[1.8] text-[#8a8070] opacity-0 transition-all duration-500 group-hover:max-h-[100px] group-hover:opacity-100"
-        >
-          Custom-built homes of unrivalled quality, tailored to your vision and
-          lifestyle.
-        </p>
-      </div>
-    </div>
-
-    <!-- Card -->
-    <div class="group relative h-[420px] overflow-hidden">
-      <img
-        src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80"
-        alt="Interior Design"
-        class="h-full w-full object-cover transition-transform duration-[800ms] ease-in-out group-hover:scale-110"
-      />
-
-      <div
-        class="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,7,6,0.95)_0%,rgba(8,7,6,0.3)_60%,transparent_100%)] transition-all duration-500 group-hover:bg-[linear-gradient(to_top,rgba(8,7,6,0.98)_0%,rgba(8,7,6,0.6)_100%)]"
-      >
-      </div>
-
-      <div class="absolute inset-x-0 bottom-0 p-8">
-        <div
-          class="mb-2 font-['Cormorant_Garamond'] text-[4rem] font-light leading-none text-[rgba(201,169,110,0.15)]"
-        >
-          02
-        </div>
-
-        <div class="mb-3 h-px w-[30px] bg-[#c9a96e]"></div>
-
-        <p
-          class="mb-2 font-['Cormorant_Garamond'] text-[1.6rem] font-normal text-[#f5f0e8]"
-        >
-          Interior Design
-        </p>
-
-        <p
-          class="max-h-0 overflow-hidden text-[0.78rem] leading-[1.8] text-[#8a8070] opacity-0 transition-all duration-500 group-hover:max-h-[100px] group-hover:opacity-100"
-        >
-          Signature interiors that blend art, culture, and couture materiality
-          seamlessly.
-        </p>
-      </div>
-    </div>
-
-    <!-- Card -->
+  <!-- Ornament -->
+  <div class="reveal flex items-center gap-4 justify-center mx-auto">
     <div
-      class="group relative h-[420px] overflow-hidden md:col-span-2 xl:col-span-1"
+      class="flex-1 h-px bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent max-w-[120px]"
     >
-      <img
-        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80"
-        alt="Commercial Spaces"
-        class="h-full w-full object-cover transition-transform duration-[800ms] ease-in-out group-hover:scale-110"
-      />
-
-      <div
-        class="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,7,6,0.95)_0%,rgba(8,7,6,0.3)_60%,transparent_100%)] transition-all duration-500 group-hover:bg-[linear-gradient(to_top,rgba(8,7,6,0.98)_0%,rgba(8,7,6,0.6)_100%)]"
-      >
-      </div>
-
-      <div class="absolute inset-x-0 bottom-0 p-8">
-        <div
-          class="mb-2 font-['Cormorant_Garamond'] text-[4rem] font-light leading-none text-[rgba(201,169,110,0.15)]"
-        >
-          03
-        </div>
-
-        <div class="mb-3 h-px w-[30px] bg-[#c9a96e]"></div>
-
-        <p
-          class="mb-2 font-['Cormorant_Garamond'] text-[1.6rem] font-normal text-[#f5f0e8]"
-        >
-          Commercial Spaces
-        </p>
-
-        <p
-          class="max-h-0 overflow-hidden text-[0.78rem] leading-[1.8] text-[#8a8070] opacity-0 transition-all duration-500 group-hover:max-h-[100px] group-hover:opacity-100"
-        >
-          Corporate environments and hospitality venues designed for distinction
-          and performance.
-        </p>
-      </div>
+    </div>
+    <div class="w-2 h-2 bg-[#c9a96e] rotate-45 shrink-0"></div>
+    <div
+      class="flex-1 h-px bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent max-w-[120px]"
+    >
     </div>
   </div>
+
+  <p
+    class="reveal text-center text-[#8a8070] text-[0.9rem] leading-[1.9] max-w-[560px] mx-auto mt-6 mb-0 tracking-[0.03em]"
+  >
+    From the ground up to the finishing touch — two disciplines, one standard of
+    excellence.
+  </p>
+
+  <!-- ── Tab bar ── -->
+  <div
+    class="srv-tabs reveal flex justify-center mt-12 mx-auto mb-10 border border-[#c9a96e]/20 w-fit max-[900px]:flex-col max-[900px]:w-full"
+  >
+    <button
+      class="srv-tab active flex items-center gap-[0.6rem] py-[0.9rem] px-[2.2rem] font-['Jost',sans-serif] text-[0.72rem] tracking-[0.18em] uppercase bg-transparent border-0 text-[#8a8070] cursor-pointer transition-colors duration-300"
+      data-tab="construction"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        class="shrink-0"
+      >
+        <path d="M3 21h18M9 21V7l6-4v18M9 11h6"></path>
+      </svg>
+      Construction
+    </button>
+
+    <button
+      class="srv-tab flex items-center gap-[0.6rem] py-[0.9rem] px-[2.2rem] font-['Jost',sans-serif] text-[0.72rem] tracking-[0.18em] uppercase bg-transparent border-0 border-l border-[#c9a96e]/20 text-[#8a8070] cursor-pointer transition-colors duration-300 max-[900px]:border-l-0 max-[900px]:border-t max-[900px]:border-t-[#c9a96e]/20"
+      data-tab="interior"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        class="shrink-0"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="1"></rect>
+        <path d="M3 9h18M9 21V9"></path>
+      </svg>
+      Interior Design
+    </button>
+  </div>
+
+  <!-- ══════════════════════════ CONSTRUCTION PANEL ══════ -->
+  <div class="srv-panel active" id="tab-construction">
+    <!--
+      Layout: 6-col grid
+      Cards 1-3 → col-span-2  (top row, equal thirds)
+      Cards 4-5 → col-span-3  (bottom row, halves)
+      Mobile  → 2 cols, each card col-span-1
+    -->
+    <div class="grid grid-cols-6 gap-[2px] max-[900px]:grid-cols-2">
+      <!-- Card 01 – New Home Construction -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default col-span-2 max-[900px]:col-span-1 max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&q=80"
+          alt="New Home Construction"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >01</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            New Home Construction
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Complete home building solutions from planning to finishing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 02 – Home Additions & Renovations -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default col-span-2 max-[900px]:col-span-1 max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1574359411659-15573a27fd0c?w=700&q=80"
+          alt="Home Additions & Renovations"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >02</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Home Additions & Renovations
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Expand and upgrade existing spaces with modern designs.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 03 – Commercial Construction -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default col-span-2 max-[900px]:col-span-1 max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80"
+          alt="Commercial Construction"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >03</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Commercial Construction
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Reliable construction services for offices and business spaces.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 04 – Structural Repairs -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default col-span-3 max-[900px]:col-span-1 max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80"
+          alt="Structural Repairs"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >04</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Structural Repairs
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Repair and strengthen damaged structural components safely.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 05 – Foundation Work -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default col-span-3 max-[900px]:col-span-1 max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1590664216291-af7f26dfafce?w=700&q=80"
+          alt="Foundation Work"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >05</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Foundation Work
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Strong and durable foundation solutions for all projects.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /tab-construction -->
+
+  <!-- ══════════════════════════ INTERIOR DESIGN PANEL ══ -->
+  <div class="srv-panel" id="tab-interior">
+    <!--
+      Layout: 3-col grid, 6 equal cards
+      Mobile → 2 cols
+    -->
+    <div class="grid grid-cols-3 gap-[2px] max-[900px]:grid-cols-2">
+      <!-- Card 01 – Space Planning -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80"
+          alt="Space Planning"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >01</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Space Planning
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Optimize room layouts for comfort and functionality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 02 – Color Consultation -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+          alt="Color Consultation"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >02</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Color Consultation
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Choose color palettes that match your style and mood.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 03 – Furniture Selection -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80"
+          alt="Furniture Selection"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >03</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Furniture Selection
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Carefully selected furniture for beauty and practicality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 04 – Lighting Design -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=700&q=80"
+          alt="Lighting Design"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >04</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Lighting Design
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Enhance interiors with balanced and stylish lighting.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 05 – Material Selection -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=700&q=80"
+          alt="Material Selection"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >05</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Material Selection
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Pick quality materials for elegant and durable interiors.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 06 – Home Staging -->
+      <div
+        class="srv-card-img group relative overflow-hidden h-[380px] cursor-default max-[900px]:h-[240px]"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80"
+          alt="Home Staging"
+          class="w-full h-full object-cover block transition-[transform,filter] duration-[800ms] ease-[ease] brightness-75 group-hover:scale-[1.08] group-hover:brightness-90"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms]
+                    group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55"
+        >
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+          <span
+            class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]"
+            >06</span
+          >
+          <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]"></div>
+          <p
+            class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]"
+          >
+            Home Staging
+          </p>
+          <p
+            class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]"
+          >
+            Prepare homes with attractive styling for better presentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /tab-interior -->
 </section>
 
+<script>
+  document.querySelectorAll<HTMLElement>(".srv-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll<HTMLElement>(".srv-tab").forEach((t) => {
+        t.classList.remove("active");
+      });
+
+      document.querySelectorAll<HTMLElement>(".srv-panel").forEach((p) => {
+        p.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+
+      const panel = document.getElementById(`tab-${tab.dataset.tab}`);
+
+      if (panel) {
+        panel.classList.add("active");
+      }
+    });
+  });
+</script>
