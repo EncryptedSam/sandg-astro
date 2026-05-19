@@ -44,7 +44,11 @@ const services: { title: string; description: string }[] = [
 
       <!-- ACCENT BORDER -->
       <div
-        class="absolute top-[-18px] left-[-18px] w-[calc(100%-40px)] h-[calc(100%-40px)] border border-[#c9a96e] opacity-40"
+        class={`
+          absolute -top-4.5 -left-4.5 w-[calc(100%-40px)] h-[calc(100%-40px)] border border-[#c9a96e] opacity-40
+          [@media(max-width:670px)]:w-[calc(100%-10px)]
+          [@media(max-width:670px)]:h-[calc(100%-10px)]
+        `}
       >
       </div>
 

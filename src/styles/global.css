@@ -106,3 +106,21 @@ body section:nth-of-type(odd) {
 body section:nth-of-type(even) {
   background: #080706;
 }
+
+@media (max-width: 550px) {
+  .hero-title {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 65px !important;
+  }
+}
+
+@media (max-height: 800px) {
+  .hero-title {
+    font-size: 45px !important;
+  }
+}
