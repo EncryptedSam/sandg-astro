@@ -1,23 +1,25 @@
 ---
 import { date } from "astro:schema";
+import padZero from "../../lib/padZero";
 
 interface ImageCardProps {
   title?: string;
   description?: string;
   imagePath?: string;
-  allowHover?: boolean;
 }
 
 interface Props {
   data: ImageCardProps[];
+  allowHover?: boolean;
+  allowPreview?: boolean;
 }
 
-const { data } = Astro.props;
+const { data, allowHover, allowPreview } = Astro.props;
 ---
 
 <div class="grid grid-cols-6 gap-1 max-[900px]:grid-cols-2">
   {
-    data.map(({ title, description, allowHover = true, imagePath }, idx) => {
+    data.map(({ title, description, imagePath }, idx) => {
       let isSpan3 = false;
 
       let { length: len } = data;
@@ -38,11 +40,11 @@ const { data } = Astro.props;
       return (
         <div
           class={`
-            srv-card-img group relative overflow-hidden h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60
+            srv-card-img group relative h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60 overflow-hidden
         `}
         >
           <div
-            class="w-full h-full bg-no-repeat bg-center bg-size-[100%] group-hover:bg-size-[110%] duration-800 ease-[ease]"
+            class="w-full h-full bg-no-repeat bg-center bg-cover scale-100 group-hover:scale-110 duration-800 ease-[ease]"
             style={`background-image: url('${imagePath}');`}
           />
 
@@ -52,7 +54,7 @@ const { data } = Astro.props;
 
               <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
                 <span class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]">
-                  {String(idx + 1).padStart(String(data.length).length, "0")}
+                  {padZero(idx + 1, data.length)}
                 </span>
 
                 <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]" />
