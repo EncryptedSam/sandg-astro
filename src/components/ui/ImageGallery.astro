@@ -1,0 +1,74 @@
+---
+import { date } from "astro:schema";
+
+interface ImageCardProps {
+  title?: string;
+  description?: string;
+  imagePath?: string;
+  allowHover?: boolean;
+}
+
+interface Props {
+  data: ImageCardProps[];
+}
+
+const { data } = Astro.props;
+---
+
+<div class="grid grid-cols-6 gap-1 max-[900px]:grid-cols-2">
+  {
+    data.map(({ title, description, allowHover = true, imagePath }, idx) => {
+      let isSpan3 = false;
+
+      let { length: len } = data;
+
+      if (len >= 4) {
+        if (len % 3 == 1) {
+          if (idx + 1 > len - 4) {
+            isSpan3 = true;
+          }
+        }
+        if (len % 3 == 2) {
+          if (idx + 1 > len - 2) {
+            isSpan3 = true;
+          }
+        }
+      }
+
+      return (
+        <div
+          class={`
+            srv-card-img group relative overflow-hidden h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60
+        `}
+        >
+          <div
+            class="w-full h-full bg-no-repeat bg-center bg-size-[100%] group-hover:bg-size-[110%] duration-800 ease-[ease]"
+            style={`background-image: url('${imagePath}');`}
+          />
+
+          {allowHover && (
+            <>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#080706]/[.96] via-[#080706]/20 to-transparent transition-all duration-[400ms] group-hover:from-[#080706] group-hover:via-[#080706]/55 group-hover:to-[#080706]/55" />
+
+              <div class="absolute bottom-0 left-0 right-0 p-[1.8rem]">
+                <span class="font-['Cormorant_Garamond',serif] text-[3.5rem] font-light text-[#c9a96e]/[.18] leading-none block mb-[0.4rem]">
+                  {String(idx + 1).padStart(String(data.length).length, "0")}
+                </span>
+
+                <div class="w-7 h-px bg-[#c9a96e] mb-[0.7rem]" />
+
+                <p class="font-['Cormorant_Garamond',serif] text-[1.35rem] font-normal text-[#f5f0e8] mb-[0.4rem]">
+                  {title}
+                </p>
+
+                <p class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]">
+                  {description}
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+      );
+    })
+  }
+</div>
