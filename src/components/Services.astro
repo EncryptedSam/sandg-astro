@@ -1,12 +1,6 @@
 ---
 import SectionHead from "./shared/SectionHead.astro";
-import ImageGallery from "./ui/ImageGallery.astro";
-interface ImageCardProps {
-  title?: string;
-  description?: string;
-  imagePath?: string;
-  allowHover?: boolean;
-}
+import ImageGallery, { type ImageCardProps } from "./ui/ImageGallery.astro";
 
 interface Services {
   constructionServices: ImageCardProps[];
@@ -153,10 +147,6 @@ const services: Services = {
 
   <!-- ══════════════════════════ INTERIOR DESIGN PANEL ══ -->
   <div class="srv-panel" id="tab-interior">
-    <!--
-      Layout: 3-col grid, 6 equal cards
-      Mobile → 2 cols
-    -->
     <ImageGallery data={services.interiorDesignServices} allowHover />
   </div><!-- /tab-interior -->
 </section>

@@ -1,155 +1,38 @@
 ---
 import SectionHead from "./shared/SectionHead.astro";
+import ImageGallery, { type ImageCardProps } from "./ui/ImageGallery.astro";
+
+const data: ImageCardProps[] = [
+  {
+    imagePath:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80",
+  },
+  {
+    imagePath:
+      "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80",
+  },
+  {
+    imagePath:
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80",
+  },
+  {
+    imagePath:
+      "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+];
 ---
 
 <section id="onsite" class="px-[5vw] py-28">
-  <SectionHead 
-    tag="On Site" 
+  <SectionHead
+    tag="On Site"
     title={[
-        {text:"Raw &", highlight:false},
-        {text:"Unfiltered", highlight:true},
-    ]} 
+      { text: "Raw &", highlight: false },
+      { text: "Unfiltered", highlight: true },
+    ]}
     description="Unedited moments captured on site — the grit, craft, and human hands behind every space we create. Before the polish, there is the process."
   />
 
-  <!-- Grid -->
-  <div class="reveal mt-16 grid grid-cols-12 gap-3">
-    <!-- ITEM -->
-    <div
-      class="group relative col-span-12 overflow-hidden md:col-span-5 h-[380px] max-md:h-[220px]"
-      data-title="The Ivory Estate"
-      data-tag="On Site · Hyderabad"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-        alt="On site construction photo"
-        class="h-full w-full object-cover brightness-[0.88] transition duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-[1.07] group-hover:brightness-100"
-      />
-
-      <!-- Badge -->
-      <div
-        class="absolute left-4 top-4 flex items-center gap-2 border border-[rgba(201,169,110,0.4)] bg-[rgba(8,7,6,0.75)] px-3 py-1 text-[0.58rem] uppercase tracking-[0.2em] text-[#c9a96e] backdrop-blur-sm"
-      >
-        <div class="h-[5px] w-[5px] animate-pulse rounded-full bg-[#c9a96e]">
-        </div>
-        On Site
-      </div>
-
-      <!-- Overlay -->
-      <div
-        class="absolute inset-0 flex flex-col justify-end bg-[linear-gradient(to_top,rgba(8,7,6,0.85)_0%,transparent_55%)] p-6 opacity-0 transition duration-300 group-hover:opacity-100"
-      >
-        <p
-          class="mb-1 flex items-center gap-2 text-[0.6rem] uppercase tracking-[0.25em] text-[#c9a96e]"
-        >
-          <span class="block h-px w-4 bg-[#c9a96e]"></span>
-          Structural Work · Hyderabad
-        </p>
-
-        <p
-          class="font-['Cormorant_Garamond'] text-[1.2rem] font-normal text-[#f5f0e8]"
-        >
-          The Ivory Estate
-        </p>
-      </div>
-    </div>
-
-    <!-- ITEM -->
-    <div
-      class="group relative col-span-12 overflow-hidden md:col-span-4 h-[380px] max-md:h-[220px]"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
-        class="h-full w-full object-cover brightness-[0.88] transition duration-700 group-hover:scale-[1.07] group-hover:brightness-100"
-      />
-
-      <div
-        class="absolute left-4 top-4 flex items-center gap-2 border border-[rgba(201,169,110,0.4)] bg-[rgba(8,7,6,0.75)] px-3 py-1 text-[0.58rem] uppercase tracking-[0.2em] text-[#c9a96e] backdrop-blur-sm"
-      >
-        <div class="h-[5px] w-[5px] animate-pulse rounded-full bg-[#c9a96e]">
-        </div>
-        On Site
-      </div>
-
-      <div
-        class="absolute inset-0 flex flex-col justify-end bg-[linear-gradient(to_top,rgba(8,7,6,0.85)_0%,transparent_55%)] p-6 opacity-0 transition duration-300 group-hover:opacity-100"
-      >
-        <p
-          class="mb-1 flex items-center gap-2 text-[0.6rem] uppercase tracking-[0.25em] text-[#c9a96e]"
-        >
-          <span class="block h-px w-4 bg-[#c9a96e]"></span>
-          Interior Fit-out · Bengaluru
-        </p>
-
-        <p
-          class="font-['Cormorant_Garamond'] text-[1.2rem] font-normal text-[#f5f0e8]"
-        >
-          Velvet Penthouse
-        </p>
-      </div>
-    </div>
-
-    <!-- ITEM -->
-    <div
-      class="group relative col-span-12 overflow-hidden md:col-span-3 h-[380px] max-md:h-[220px]"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1590664216291-af7f26dfafce?w=600&q=80"
-        class="h-full w-full object-cover brightness-[0.88] transition duration-700 group-hover:scale-[1.07] group-hover:brightness-100"
-      />
-
-      <div
-        class="absolute left-4 top-4 flex items-center gap-2 border border-[rgba(201,169,110,0.4)] bg-[rgba(8,7,6,0.75)] px-3 py-1 text-[0.58rem] uppercase tracking-[0.2em] text-[#c9a96e] backdrop-blur-sm"
-      >
-        <div class="h-[5px] w-[5px] animate-pulse rounded-full bg-[#c9a96e]">
-        </div>
-        On Site
-      </div>
-
-      <div
-        class="absolute inset-0 flex flex-col justify-end bg-[linear-gradient(to_top,rgba(8,7,6,0.85)_0%,transparent_55%)] p-6 opacity-0 transition duration-300 group-hover:opacity-100"
-      >
-        <p
-          class="mb-1 flex items-center gap-2 text-[0.6rem] uppercase tracking-[0.25em] text-[#c9a96e]"
-        >
-          <span class="block h-px w-4 bg-[#c9a96e]"></span>
-          Finishing Work · Delhi
-        </p>
-
-        <p
-          class="font-['Cormorant_Garamond'] text-[1.2rem] font-normal text-[#f5f0e8]"
-        >
-          Obsidian HQ
-        </p>
-      </div>
-    </div>
-
-    <!-- Bottom Row -->
-    <div
-      class="group relative col-span-12 overflow-hidden md:col-span-3 h-[300px] max-md:h-[220px]"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&q=80"
-        class="h-full w-full object-cover brightness-[0.88] transition duration-700 group-hover:scale-[1.07] group-hover:brightness-100"
-      />
-    </div>
-
-    <div
-      class="group relative col-span-12 overflow-hidden md:col-span-5 h-[300px] max-md:h-[220px]"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1521193089605-98930c8bcd17?w=800&q=80"
-        class="h-full w-full object-cover brightness-[0.88] transition duration-700 group-hover:scale-[1.07] group-hover:brightness-100"
-      />
-    </div>
-
-    <div
-      class="group relative col-span-12 overflow-hidden md:col-span-4 h-[300px] max-md:h-[220px]"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?w=700&q=80"
-        class="h-full w-full object-cover brightness-[0.88] transition duration-700 group-hover:scale-[1.07] group-hover:brightness-100"
-      />
-    </div>
+  <div class="mt-20">
+    <ImageGallery data={data} allowHover={false} />
   </div>
 </section>
