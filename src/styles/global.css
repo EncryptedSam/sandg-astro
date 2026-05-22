@@ -143,21 +143,11 @@ body section:nth-of-type(even) {
   display: block;
 }
 
-/* Scroll-reveal (driven by IntersectionObserver JS) */
-/* .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-} */
 
-/* Card description expand — needs both max-h + opacity on group-hover */
-/* .srv-card-img:hover .srv-card-desc {
-  max-height: 80px;
-  opacity: 1;
-} */
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

@@ -18,7 +18,7 @@ interface Props {
 const {
   data,
   allowHover,
-  allowPreview,
+  allowPreview = true,
   limit = 6,
   allowViewMore = true,
 } = Astro.props;
@@ -29,7 +29,7 @@ if (typeof limit == "number" && limit <= len) {
   len = limit;
 }
 
-if (data.length > limit && allowViewMore) {
+if (data.length > limit && allowViewMore && allowPreview) {
   showViewMore = true;
 }
 ---

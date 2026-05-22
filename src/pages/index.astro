@@ -14,6 +14,19 @@ import Contact from "../components/Contact.astro";
 import Partners from "../components/Partners.astro";
 import Footer from "../components/Footer.astro";
 import WhatsApp from "../components/WhatsApp.astro";
+import LightboxGallery from "../components/ui/LightboxGallery.astro";
+const gallery = [
+  {
+    src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&q=80",
+    title: "Modern Living Room",
+    tag: "Interiors",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&q=80",
+    title: "Luxury Bedroom",
+    tag: "Residential",
+  },
+];
 ---
 
 <MainLayout
@@ -33,4 +46,6 @@ import WhatsApp from "../components/WhatsApp.astro";
   <Contact />
   <Footer />
   <WhatsApp />
+  <LightboxGallery items={gallery} />
 </MainLayout>
+
