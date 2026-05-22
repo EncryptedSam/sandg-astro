@@ -19,27 +19,28 @@ const { items, galleryId = "gallery" } = Astro.props;
 >
   <div class="flex flex-1 items-center justify-center">
     <div
+      id={`${galleryId}-img`}
       class="w-175 bg-contain bg-center bg-no-repeat h-full"
       style={`background-image: url('${items[0].src}')`}
     >
     </div>
     <!-- Close -->
     <button
-      id="close"
+      id={`${galleryId}-close`}
       class="absolute inline-flex items-center justify-center right-6 top-6 h-12.5 w-12.5 text-[18px] border border-[#c9a96e4d] text-gold cursor-pointer"
     >
       ✕
     </button>
     <!-- Prev -->
     <button
-      id="prev"
+      id={`${galleryId}-prev`}
       class="absolute inline-flex items-center justify-center left-6 h-12.5 w-12.5 text-[18px] border border-[#c9a96e4d] text-gold cursor-pointer"
     >
       ←
     </button>
     <!-- Next -->
     <button
-      id="next"
+      id={`${galleryId}-next`}
       class="absolute inline-flex items-center justify-center right-6 h-12.5 w-12.5 text-[18px] border border-[#c9a96e4d] text-gold cursor-pointer"
     >
       →
@@ -47,54 +48,80 @@ const { items, galleryId = "gallery" } = Astro.props;
   </div>
   <div class="w-full flex flex-col items-center py-6">
     <div
-      id="counter"
+      id={`${galleryId}-counter`}
       class="font-['Jost',sans-serif] mb-4 text-text-muted text-[10px] font-light text-center"
     >
       6 / 6
     </div>
 
-    <div id="thumbs" class="flex max-w-91 space-x-1 overflow-auto">
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
-      <div
-        class="inline-block shrink-0 w-13 h-9.5 border border-gold bg-cover bg-no-repeat"
-      >
-      </div>
+    <div
+      id={`${galleryId}-thumbs`}
+      class="flex max-w-91 space-x-1 overflow-auto"
+    >
     </div>
   </div>
 </div>
 
-<script type="module" define:vars={{ items, galleryId }}>
+<script type="module" lang="ts" define:vars={{ items, galleryId }}>
+  const lightbox = document.getElementById(`${galleryId}-lightbox`);
+  const lightboxImg = document.getElementById(`${galleryId}-img`);
+  const lightboxCounter = document.getElementById(`${galleryId}-counter`);
+  const lightboxThumbs = document.getElementById(`${galleryId}-thumbs`);
+  const lightboxNext = document.getElementById(`${galleryId}-next`);
+  const lightboxPrev = document.getElementById(`${galleryId}-prev`);
+  const lightboxClose = document.getElementById(`${galleryId}-close`);
 
+  lightboxThumbs.replaceChildren();
 
+  let currentIdx = 0;
+
+  const thumbs = [];
+
+  function goTo(index) {
+    if (thumbs.length == 0) return;
+    thumbs.forEach((thumb, idx) => {
+      thumb.classList.toggle("opacity-100", idx === index);
+      thumb.classList.toggle("border-[#C9A96E]", idx === index);
+      thumb.classList.toggle("border-transparent", idx !== index);
+      thumb.classList.toggle("opacity-35", idx !== index);
+    });
+
+    thumbs[index].scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+
+    lightboxImg.style.backgroundImage = `url('${items[index].src}')`;
+    lightboxCounter.innerHTML = `${index + 1} / ${items.length}`;
+  }
+
+  items.forEach(({ src }, i) => {
+    const thumb = document.createElement("div");
+    thumb.style.backgroundImage = `url('${src}')`;
+    thumb.className =
+      "inline-block shrink-0 w-13 h-9.5 bg-cover bg-no-repeat opacity-35 border border-transparent cursor-pointer";
+
+    thumb.addEventListener("click", () => {
+      goTo(i);
+      currentIdx = i;
+    });
+    lightboxThumbs.appendChild(thumb);
+    thumbs.push(thumb);
+  });
+
+  goTo(0);
+
+  lightboxNext.addEventListener("click", () => {
+    goTo(++currentIdx % items.length);
+  });
+
+  lightboxPrev.addEventListener("click", () => {
+    goTo(Math.abs(++currentIdx - items.length) % items.length);
+  });
+
+  function toggleLightbox() {
+    lightbox.classList.toggle("hidden");
+  }
+
+  lightboxClose.addEventListener("click", toggleLightbox);
 </script>
