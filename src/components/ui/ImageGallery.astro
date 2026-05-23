@@ -9,6 +9,7 @@ export interface ImageCardProps {
 
 interface Props {
   data: ImageCardProps[];
+  galleryId: string;
   allowHover?: boolean;
   allowPreview?: boolean;
   allowViewMore?: boolean;
@@ -21,6 +22,7 @@ const {
   allowPreview = true,
   limit = 6,
   allowViewMore = true,
+  galleryId,
 } = Astro.props;
 let len = data.length;
 let showViewMore = false;
@@ -94,10 +96,22 @@ if (data.length > limit && allowViewMore && allowPreview) {
 
 {
   showViewMore && (
-    <div class="mt-10 flex justify-center">
+    <div id={`${galleryId}-viewmore`} class="mt-10 flex justify-center">
       <button class="inline-flex items-center gap-[0.8rem] border border-[rgba(201,169,110,0.4)] px-[2.2rem] py-[0.85rem] font-['Jost',sans-serif] text-[0.72rem] uppercase tracking-[0.22em] text-[#C9A96E] transition-[background,color,border-color] duration-300 hover:border-[#C9A96E] hover:bg-[rgba(201,169,110,0.08)] cursor-pointer">
-        <span>View More Services</span>
+        <span>View More</span>
       </button>
     </div>
   )
 }
+
+<script type="module" define:vars={{ galleryId }}>
+  const viewmore = document.getElementById(`${galleryId}-viewmore`);
+
+  viewmore?.addEventListener("click", () => {
+    window.dispatchEvent(
+      new CustomEvent("view-more", {
+        detail: { id: galleryId },
+      }),
+    );
+  });
+</script>
