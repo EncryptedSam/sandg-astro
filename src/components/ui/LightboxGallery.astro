@@ -6,16 +6,18 @@ interface GalleryItem {
 }
 
 interface Props {
+  title?: string;
   items: GalleryItem[];
   galleryId?: string;
 }
 
-const { items, galleryId = "gallery" } = Astro.props;
+const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
 ---
 
 <div
   id={`${galleryId}-lightbox`}
   class="fixed flex flex-col top-0 left-0 w-screen h-screen bg-[#080706f7] z-[9999]"
+  tabindex="0"
 >
   <div class="flex flex-1 items-center justify-center">
     <div
@@ -47,6 +49,11 @@ const { items, galleryId = "gallery" } = Astro.props;
     </button>
   </div>
   <div class="w-full flex flex-col items-center py-6">
+    <h1
+      class="font-['Cormorant_Garamond'] text-[19.2px] font-light text-[#f5f0e8]"
+    >
+      {title}
+    </h1>
     <div
       id={`${galleryId}-counter`}
       class="font-['Jost',sans-serif] mb-4 text-text-muted text-[10px] font-light text-center"
@@ -95,11 +102,21 @@ const { items, galleryId = "gallery" } = Astro.props;
     lightboxCounter.innerHTML = `${index + 1} / ${items.length}`;
   }
 
+  function goRight() {
+    currentIdx = ++currentIdx % items.length;
+    goTo(currentIdx);
+  }
+
+  function goLeft() {
+    currentIdx = Math.abs(items.length + --currentIdx) % items.length;
+    goTo(currentIdx);
+  }
+
   items.forEach(({ src }, i) => {
     const thumb = document.createElement("div");
     thumb.style.backgroundImage = `url('${src}')`;
     thumb.className =
-      "inline-block shrink-0 w-13 h-9.5 bg-cover bg-no-repeat opacity-35 border border-transparent cursor-pointer";
+      "inline-block shrink-0 w-13 h-9.5 bg-cover bg-no-repeat opacity-35 border border-transparent cursor-pointer transition duration-300";
 
     thumb.addEventListener("click", () => {
       goTo(i);
@@ -111,17 +128,33 @@ const { items, galleryId = "gallery" } = Astro.props;
 
   goTo(0);
 
-  lightboxNext.addEventListener("click", () => {
-    goTo(++currentIdx % items.length);
-  });
+  lightboxNext.addEventListener("click", goRight);
 
-  lightboxPrev.addEventListener("click", () => {
-    goTo(Math.abs(++currentIdx - items.length) % items.length);
-  });
+  lightboxPrev.addEventListener("click", goLeft);
 
   function toggleLightbox() {
     lightbox.classList.toggle("hidden");
   }
 
   lightboxClose.addEventListener("click", toggleLightbox);
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox?.classList.contains("hidden")) return;
+
+    if (document.activeElement !== lightbox) return;
+
+    switch (e.key) {
+      case "ArrowRight":
+        goRight();
+        break;
+
+      case "ArrowLeft":
+        goLeft();
+        break;
+
+      case "Escape":
+        toggleLightbox();
+        break;
+    }
+  });
 </script>
