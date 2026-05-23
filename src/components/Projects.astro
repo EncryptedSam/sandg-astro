@@ -1,7 +1,6 @@
 ---
 import SectionHead from "./shared/SectionHead.astro";
 import ImageGallery, { type ImageCardProps } from "./ui/ImageGallery.astro";
-import LightboxGallery from "./ui/LightboxGallery.astro";
 
 const data: ImageCardProps[] = [
   {
@@ -66,18 +65,13 @@ const data: ImageCardProps[] = [
   </div>
 </section>
 
-<LightboxGallery
-  galleryId="projects"
-  items={data.map(({ imagePath }) => ({
-    src: imagePath,
-  }))}
-/>
-
-<script type="module">
-  import { openLightbox } from "../../src/components/ui/LightboxGallery";
+<script type="module" define:vars={{ data }}>
+  import { openLightbox } from "../../src/components/ui/LightboxGalleryV2";
   import { invokeImageGalleryViewMore } from "../../src/components/ui/ImageGallery";
 
+  const mappedData = data.map(({ imagePath }) => ({ src: imagePath }));
+
   invokeImageGalleryViewMore("projects", () => {
-    openLightbox("projects");
+    openLightbox("global", mappedData, 6, "Test Gallery");
   });
 </script>

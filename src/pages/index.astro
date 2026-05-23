@@ -14,13 +14,49 @@ import Contact from "../components/Contact.astro";
 import Partners from "../components/Partners.astro";
 import Footer from "../components/Footer.astro";
 import WhatsApp from "../components/WhatsApp.astro";
+import LightboxGalleryV2 from "@/components/ui/LightboxGalleryV2.astro";
+
+const data = [
+  {
+    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564078516393-cf04bd966897?w=900&q=80",
+  },
+];
 ---
 
 <MainLayout
   title="S&G Constructions"
   description="Luxury construction and interior design company."
 >
-  <WhatsApp />
   <NavBar />
   <Hero />
   <About />
@@ -33,4 +69,14 @@ import WhatsApp from "../components/WhatsApp.astro";
   <Partners />
   <Contact />
   <Footer />
+  <WhatsApp />
+  <LightboxGalleryV2 />
 </MainLayout>
+
+<script type="module" define:vars={{ data }}>
+  // import { openLightbox } from "../../src/components/ui/LightboxGalleryV2";
+
+  // window.onload = () => {
+  //   openLightbox("global", data, 0, "Test Gallery");
+  // };
+</script>

@@ -122,11 +122,12 @@ const galleryId = crypto.randomUUID();
 
   lightboxPrev.addEventListener("click", goLeft);
 
-  function toggleLightbox() {
-    lightbox.classList.toggle("hidden");
+  function closeLightbox() {
+    lightbox?.classList.remove("flex");
+    lightbox?.classList.add("hidden");
   }
 
-  lightboxClose.addEventListener("click", toggleLightbox);
+  lightboxClose.addEventListener("click", closeLightbox);
 
   document.addEventListener("keydown", (e) => {
     if (lightbox?.classList.contains("hidden")) return;
@@ -143,23 +144,26 @@ const galleryId = crypto.randomUUID();
         break;
 
       case "Escape":
-        toggleLightbox();
+        closeLightbox();
         break;
     }
   });
 
   window.addEventListener("open-lightbox", (e) => {
-    const { data, title, index } = e.detail;
+    const { id, data, title, index } = e.detail;
 
-    lightboxTitle.innerHTML = title ? title : "Untitled";
+    if (id.toLowerCase() !== "global") return;
+
     lightbox?.classList.remove("hidden");
     lightbox?.classList.add("flex");
     lightbox?.focus();
+    lightboxTitle.innerHTML = title ? title : "Untitled";
 
     items = [...data];
 
     renderThumbList();
 
+    currentIdx = index;
     goTo(index);
   });
 </script>
