@@ -1,11 +1,5 @@
 ---
-interface Props {
-  title?: string;
-  items: { src: string }[];
-  galleryId?: string;
-}
-
-const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
+const galleryId = crypto.randomUUID();
 ---
 
 <div
@@ -43,9 +37,9 @@ const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
   </div>
   <div class="w-full flex flex-col items-center py-6">
     <h1
+      id={`${galleryId}-title`}
       class="font-['Cormorant_Garamond'] text-[19.2px] font-light text-[#f5f0e8]"
     >
-      {title}
     </h1>
     <div
       id={`${galleryId}-counter`}
@@ -62,8 +56,9 @@ const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
   </div>
 </div>
 
-<script type="module" define:vars={{ items, galleryId }}>
+<script type="module" lang="ts" define:vars={{ galleryId }}>
   const lightbox = document.getElementById(`${galleryId}-lightbox`);
+  const lightboxTitle = document.getElementById(`${galleryId}-title`);
   const lightboxImg = document.getElementById(`${galleryId}-img`);
   const lightboxCounter = document.getElementById(`${galleryId}-counter`);
   const lightboxThumbs = document.getElementById(`${galleryId}-thumbs`);
@@ -76,6 +71,8 @@ const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
   let currentIdx = 0;
 
   const thumbs = [];
+
+  let items = [];
 
   function goTo(index) {
     if (thumbs.length == 0) return;
@@ -105,31 +102,32 @@ const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
     goTo(currentIdx);
   }
 
-  items.forEach(({ src }, i) => {
-    const thumb = document.createElement("div");
-    thumb.style.backgroundImage = `url('${src}')`;
-    thumb.className =
-      "inline-block shrink-0 w-13 h-9.5 bg-cover bg-no-repeat opacity-35 border border-transparent cursor-pointer transition duration-300";
+  function renderThumbList() {
+    items.forEach(({ src }, i) => {
+      const thumb = document.createElement("div");
+      thumb.style.backgroundImage = `url('${src}')`;
+      thumb.className =
+        "inline-block shrink-0 w-13 h-9.5 bg-cover bg-no-repeat opacity-35 border border-transparent cursor-pointer transition duration-300";
 
-    thumb.addEventListener("click", () => {
-      goTo(i);
-      currentIdx = i;
+      thumb.addEventListener("click", () => {
+        goTo(i);
+        currentIdx = i;
+      });
+      lightboxThumbs.appendChild(thumb);
+      thumbs.push(thumb);
     });
-    lightboxThumbs.appendChild(thumb);
-    thumbs.push(thumb);
-  });
-
-  goTo(0);
+  }
 
   lightboxNext.addEventListener("click", goRight);
 
   lightboxPrev.addEventListener("click", goLeft);
 
-  function toggleLightbox() {
-    lightbox.classList.toggle("hidden");
+  function closeLightbox() {
+    lightbox?.classList.remove("flex");
+    lightbox?.classList.add("hidden");
   }
 
-  lightboxClose.addEventListener("click", toggleLightbox);
+  lightboxClose.addEventListener("click", closeLightbox);
 
   document.addEventListener("keydown", (e) => {
     if (lightbox?.classList.contains("hidden")) return;
@@ -146,16 +144,26 @@ const { title = "Untitled", items, galleryId = "gallery" } = Astro.props;
         break;
 
       case "Escape":
-        toggleLightbox();
+        closeLightbox();
         break;
     }
   });
 
   window.addEventListener("open-lightbox", (e) => {
-    if (e.detail.id === galleryId) {
-      lightbox?.classList.remove("hidden");
-      lightbox?.classList.add("flex");
-      lightbox?.focus();
-    }
+    const { id, data, title, index } = e.detail;
+
+    if (id.toLowerCase() !== "global") return;
+
+    lightbox?.classList.remove("hidden");
+    lightbox?.classList.add("flex");
+    lightbox?.focus();
+    lightboxTitle.innerHTML = title ? title : "Untitled";
+
+    items = [...data];
+
+    renderThumbList();
+
+    currentIdx = index;
+    goTo(index);
   });
 </script>

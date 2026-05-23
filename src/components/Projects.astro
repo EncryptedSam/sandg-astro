@@ -65,8 +65,8 @@ const data: ImageCardProps[] = [
   </div>
 </section>
 
-<script type="module" define:vars={{ data }}>
-  import { openLightbox } from "../../src/components/ui/LightboxGalleryV2";
+<script type="module" lang="ts" define:vars={{ data }}>
+  import { openLightbox } from "../../src/components/ui/LightboxGallery";
   import { invokeImageGalleryViewMore } from "../../src/components/ui/ImageGallery";
 
   const mappedData = data.map(({ imagePath }) => ({ src: imagePath }));
