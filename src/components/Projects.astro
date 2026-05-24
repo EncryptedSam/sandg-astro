@@ -64,14 +64,3 @@ const data: ImageCardProps[] = [
     <ImageGallery galleryId="projects" data={data} allowHover={false} />
   </div>
 </section>
-
-<script type="module" lang="ts" define:vars={{ data }}>
-  import { openLightbox } from "../../src/components/ui/LightboxGallery";
-  import { invokeImageGalleryViewMore } from "../../src/components/ui/ImageGallery";
-
-  const mappedData = data.map(({ imagePath }) => ({ src: imagePath }));
-
-  invokeImageGalleryViewMore("projects", () => {
-    openLightbox("global", mappedData, 6, "Test Gallery");
-  });
-</script>

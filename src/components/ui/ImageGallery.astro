@@ -36,7 +36,10 @@ if (data.length > limit && allowViewMore && allowPreview) {
 }
 ---
 
-<div class="grid grid-cols-6 gap-1 max-[900px]:grid-cols-2">
+<div
+  id={`${galleryId}-image-gallery`}
+  class="grid grid-cols-6 gap-1 max-[900px]:grid-cols-2"
+>
   {
     data
       .slice(0, limit ?? len)
@@ -59,8 +62,8 @@ if (data.length > limit && allowViewMore && allowPreview) {
         return (
           <div
             class={`
-            srv-card-img group relative h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60 overflow-hidden
-        `}
+              group relative h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60 overflow-hidden
+            `}
           >
             <div
               class="w-full h-full bg-no-repeat bg-center bg-cover scale-100 group-hover:scale-110 duration-800 ease-[ease]"
@@ -82,7 +85,7 @@ if (data.length > limit && allowViewMore && allowPreview) {
                     {title}
                   </p>
 
-                  <p class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-[400ms]">
+                  <p class="srv-card-desc text-[0.76rem] text-[#8a8070] leading-[1.8] max-h-0 overflow-hidden opacity-0 transition-all duration-400">
                     {description}
                   </p>
                 </div>
@@ -104,14 +107,14 @@ if (data.length > limit && allowViewMore && allowPreview) {
   )
 }
 
-<script type="module" define:vars={{ galleryId }}>
+<script type="module" lang="ts" define:vars={{ galleryId, data }}>
+  import { openLightbox } from "../../../src/components/ui/LightboxGallery";
+  const imageGallery = document.getElementById(`${galleryId}-image-gallery`);
   const viewmore = document.getElementById(`${galleryId}-viewmore`);
 
   viewmore?.addEventListener("click", () => {
-    window.dispatchEvent(
-      new CustomEvent("view-more", {
-        detail: { id: galleryId },
-      }),
-    );
+    const mappedData = data.map(({ imagePath }) => ({ src: imagePath }));
+    openLightbox("global", mappedData, 6, "Test Gallery");
   });
 </script>
+
