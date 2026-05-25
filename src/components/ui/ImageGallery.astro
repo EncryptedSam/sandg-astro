@@ -61,8 +61,9 @@ if (data.length > limit && allowViewMore && allowPreview) {
 
         return (
           <div
+            data-gallery-item
             class={`
-              group relative h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60 overflow-hidden
+              group relative h-95 cursor-default ${isSpan3 ? "col-span-3" : "col-span-2"} max-[900px]:col-span-1 max-[900px]:h-60 overflow-hidden ${allowPreview ? 'cursor-pointer' :''}
             `}
           >
             <div
@@ -107,12 +108,22 @@ if (data.length > limit && allowViewMore && allowPreview) {
   )
 }
 
-<script type="module" lang="ts" define:vars={{ galleryId, data }}>
+<script type="module" lang="ts" define:vars={{ galleryId, data, allowPreview }}>
   const imageGallery = document.getElementById(`${galleryId}-image-gallery`);
+  const galleryItems = imageGallery.querySelectorAll("[data-gallery-item]");
   const viewmore = document.getElementById(`${galleryId}-viewmore`);
 
+  const mappedData = data.map(({ imagePath }) => ({ src: imagePath }));
+
+  if(allowPreview){
+    [...galleryItems].map((item, idx) => {
+      item.addEventListener("click", () => {
+        openLightbox("global", mappedData, idx, "Test Gallery");
+      });
+    });
+  }
+
   viewmore?.addEventListener("click", () => {
-    const mappedData = data.map(({ imagePath }) => ({ src: imagePath }));
     openLightbox("global", mappedData, 6, "Test Gallery");
   });
 </script>
