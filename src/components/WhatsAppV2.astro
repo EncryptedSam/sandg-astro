@@ -1,0 +1,119 @@
+---
+const contacts = [
+  {
+    name: "Arjun Kapoor",
+    role: "Founder & CEO",
+    number: "+91 40 2345 6789",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
+    href: "https://wa.me/914023456789?text=Hello%2C%20I%27m%20interested%20in%20your%20services.",
+  },
+  {
+    name: "Meera Nair",
+    role: "Co-Founder & Design Director",
+    number: "+91 98765 43210",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
+    href: "https://wa.me/919876543210?text=Hello%2C%20I%27m%20interested%20in%20your%20services.",
+  },
+];
+---
+
+<div
+  id="waContainer"
+  class="fixed bottom-8 right-8 z-[9999] flex flex-col items-end gap-2"
+>
+  <!-- Pulse -->
+  <div
+    class="absolute bottom-0 right-0 -z-10 h-14 w-14 animate-ping rounded-full bg-[#25D366]/30"
+  >
+  </div>
+
+  <!-- Popup -->
+  <div
+    id="waPopup"
+    class="pointer-events-none translate-y-2 scale-[0.97] rounded border border-[#C9A96E]/20 bg-[#0F0D0A] p-4 opacity-0 shadow-[0_8px_40px_rgba(0,0,0,0.6)] transition-all duration-300 w-[280px]"
+  >
+    <p
+      class="mb-3 border-b border-[#C9A96E]/10 pb-3 text-[11px] uppercase tracking-[0.18em] text-[#8A8070]"
+    >
+      Chat with us on WhatsApp
+    </p>
+
+    <div class="flex flex-col gap-3">
+      {
+        contacts.map((contact) => (
+          <a
+            href={contact.href}
+            target="_blank"
+            rel="noopener"
+            class="flex items-center gap-3 rounded border border-[#C9A96E]/10 bg-white/[0.03] p-3 transition hover:border-[#25D366]/35 hover:bg-[#25D366]/10"
+          >
+            <div class="h-[46px] w-[46px] overflow-hidden rounded-full border-2 border-[#C9A96E]/40">
+              <img
+                src={contact.image}
+                alt={contact.name}
+                class="h-full w-full object-cover object-top"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <span class="text-sm font-medium tracking-wide text-[#F5F0E8]">
+                {contact.name}
+              </span>
+
+              <span class="text-[11px] text-[#8A8070]">{contact.role}</span>
+
+              <span class="mt-1 font-serif text-[15px] text-[#C9A96E]">
+                {contact.number}
+              </span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Floating Button -->
+  <button
+    id="waBtn"
+    aria-label="Chat on WhatsApp"
+    class="group flex h-14 w-14 items-center overflow-hidden rounded-full bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all duration-300 hover:w-[210px] hover:rounded-[28px] hover:shadow-[0_6px_28px_rgba(37,211,102,0.55)]"
+  >
+    <div
+      class="flex h-14 w-14 items-center justify-center shrink-0 bg-no-repeat bg-center bg-size-[50%]"
+      style={`background-image:url('${import.meta.env.BASE_URL}images/whatsapp.svg')`}
+    >
+    </div>
+
+    <span
+      class="pointer-events-none pr-5 text-sm font-medium tracking-wide opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap"
+    >
+      Chat on WhatsApp
+    </span>
+  </button>
+</div>
+
+<script type="module">
+  const waBtn = document.getElementById("waBtn");
+  const waPopup = document.getElementById("waPopup");
+  const waContainer = document.getElementById("waContainer");
+
+  waBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    waPopup?.classList.toggle("opacity-0");
+    waPopup?.classList.toggle("pointer-events-none");
+    waPopup?.classList.toggle("translate-y-2");
+    waPopup?.classList.toggle("scale-[0.97]");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!waContainer?.contains(e.target)) {
+      waPopup?.classList.add("opacity-0");
+      waPopup?.classList.add("pointer-events-none");
+      waPopup?.classList.add("translate-y-2");
+      waPopup?.classList.add("scale-[0.97]");
+    }
+  });
+</script>
