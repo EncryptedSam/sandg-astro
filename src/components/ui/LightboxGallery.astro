@@ -166,4 +166,14 @@ const galleryId = crypto.randomUUID();
     currentIdx = index;
     goTo(index);
   });
+
+  function openLightbox(id, data, index, title) {
+    window.dispatchEvent(
+      new CustomEvent("open-lightbox", {
+        detail: { data, index, title, id },
+      }),
+    );
+  }
+
+  window.openLightbox = openLightbox;
 </script>

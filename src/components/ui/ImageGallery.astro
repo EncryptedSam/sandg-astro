@@ -108,7 +108,6 @@ if (data.length > limit && allowViewMore && allowPreview) {
 }
 
 <script type="module" lang="ts" define:vars={{ galleryId, data }}>
-  import { openLightbox } from "../../../src/components/ui/LightboxGallery";
   const imageGallery = document.getElementById(`${galleryId}-image-gallery`);
   const viewmore = document.getElementById(`${galleryId}-viewmore`);
 
@@ -117,4 +116,3 @@ if (data.length > limit && allowViewMore && allowPreview) {
     openLightbox("global", mappedData, 6, "Test Gallery");
   });
 </script>
-
