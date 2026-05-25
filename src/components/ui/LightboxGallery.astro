@@ -66,11 +66,9 @@ const galleryId = crypto.randomUUID();
   const lightboxPrev = document.getElementById(`${galleryId}-prev`);
   const lightboxClose = document.getElementById(`${galleryId}-close`);
 
-  lightboxThumbs.replaceChildren();
-
   let currentIdx = 0;
 
-  const thumbs = [];
+  let thumbs = [];
 
   let items = [];
 
@@ -160,6 +158,10 @@ const galleryId = crypto.randomUUID();
     lightboxTitle.innerHTML = title ? title : "Untitled";
 
     items = [...data];
+
+    lightboxThumbs.replaceChildren();
+
+    thumbs = [];
 
     renderThumbList();
 
