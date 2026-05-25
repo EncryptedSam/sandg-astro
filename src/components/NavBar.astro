@@ -72,7 +72,7 @@ const navLinks = [
         class="ml-auto w-10 h-10 border border-gold/30 text-gold hover:text-[#C9A96E] hover:border-gold hover:bg-[#c9a96e1a] cursor-pointer transition duration-300"
         >✕</button
       >
-      <a href="#" class="mr-auto shrink-0">
+      <a data-sidenav-logo href="#" class="mr-auto shrink-0">
         <img
           class="logo h-23.75 transition-all duration-300"
           src={`${import.meta.env.BASE_URL}images/logo-v2.svg`}
@@ -163,6 +163,7 @@ const navLinks = [
   handleResize();
 
   const ham = document.querySelector("[data-hamburger]");
+  const sidenavlogo = document.querySelector("[data-sidenav-logo]");
   const sidenav = document.querySelector("[data-sidenav]");
   const navclosebtn = sidenav.querySelector("[data-navclose]");
   const navlist = sidenav.querySelectorAll("[data-navlist] li");
@@ -180,6 +181,7 @@ const navLinks = [
   ham?.addEventListener("click", showSidenav);
 
   navclosebtn?.addEventListener("click", hideSidenav);
+  sidenavlogo?.addEventListener("click", hideSidenav);
 
   navlist?.forEach((nav) => {
     nav?.addEventListener("click", hideSidenav);
